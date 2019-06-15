@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "488248557082",
+    "firebase_url": "https://missedconnection-50321.firebaseio.com",
+    "project_id": "missedconnection-50321",
+    "storage_bucket": "missedconnection-50321.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488248557082:android:7d58c07e2575b0ec",
+        "android_client_info": {
+          "package_name": "d.com.flucca.missedconnection"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488248557082-86pgdo1n3951st6nr1e751a4kio1eu2o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "d.com.flucca.missedconnection",
+            "certificate_hash": "cf29d850a4571407d1d5bc37bb089f5c1c10efb8"
+          }
+        },
+        {
+          "client_id": "488248557082-81cfdk573i88g0dldio6mtgglvv4fb54.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgRCq2wDhrISS8W63ZuUNi1mkj0mLT5B0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488248557082-81cfdk573i88g0dldio6mtgglvv4fb54.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

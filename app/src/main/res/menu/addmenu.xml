@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/mybutton"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@drawable/add"
+        />
+    <item
+        android:id="@+id/action_home_page"
+        app:showAsAction="never"
+        android:title="Home Page">
+    </item>
+    <item
+        android:id="@+id/action_my_posts"
+        app:showAsAction="never"
+        android:title="Mis Entradas">
+    </item>
+    <item
+        android:id="@+id/action_my_connections"
+        app:showAsAction="never"
+        android:title="Mis Conexiones">
+    </item>
+    <item
+    android:id="@+id/action_profile"
+    app:showAsAction="never"
+    android:title="Mi Perfil">
+    </item>
+    <item
+        android:id="@+id/action_logout"
+        app:showAsAction="never"
+        android:title="Cerrar Sesión">
+    </item>
+</menu>
