@@ -170,7 +170,6 @@ public class CreatePost extends AppCompatActivity implements LocationListener{
         if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP){
             int permissionCheck = CreatePost.this.checkSelfPermission("Manifest.permission.READ_EXTERNAL_STORAGE");
             permissionCheck += CreatePost.this.checkSelfPermission("Manifest.permission.WRITE_EXTERNAL_STORAGE");
-            permissionCheck += CreatePost.this.checkSelfPermission("Manifest.permission.CAMERA");
             if(permissionCheck != 0){
                 this.requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE},REQUEST_STORAGE_PERMISSION);
             }else{
@@ -181,8 +180,10 @@ public class CreatePost extends AppCompatActivity implements LocationListener{
 
     private void checkImagePermissions(){
             int permissionCheck = CreatePost.this.checkSelfPermission("Manifest.permission.CAMERA");
+         permissionCheck += CreatePost.this.checkSelfPermission("Manifest.permission.READ_EXTERNAL_STORAGE");
+        permissionCheck += CreatePost.this.checkSelfPermission("Manifest.permission.WRITE_EXTERNAL_STORAGE");
             if(permissionCheck != 0){
-                this.requestPermissions(new String[]{Manifest.permission.CAMERA},REQUEST_IMAGE);
+                this.requestPermissions(new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE},REQUEST_IMAGE);
             }else{
                 takePhoto();
             }
@@ -383,7 +384,7 @@ public class CreatePost extends AppCompatActivity implements LocationListener{
             }
         }
         else if(requestCode == REQUEST_IMAGE){
-            if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+            if((grantResults[0] == PackageManager.PERMISSION_GRANTED) && (grantResults[1] == PackageManager.PERMISSION_GRANTED) && (grantResults[2] == PackageManager.PERMISSION_GRANTED)){
                 takePhoto();
             }
         }

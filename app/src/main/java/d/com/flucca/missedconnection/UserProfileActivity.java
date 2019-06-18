@@ -151,7 +151,6 @@ public class UserProfileActivity extends AppCompatActivity {
         if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP){
             int permissionCheck = UserProfileActivity.this.checkSelfPermission("Manifest.permission.READ_EXTERNAL_STORAGE");
             permissionCheck += UserProfileActivity.this.checkSelfPermission("Manifest.permission.WRITE_EXTERNAL_STORAGE");
-            permissionCheck += UserProfileActivity.this.checkSelfPermission("Manifest.permission.CAMERA");
             if(permissionCheck != 0){
                 this.requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE},REQUEST_STORAGE_PERMISSION);
             }else{
@@ -162,8 +161,10 @@ public class UserProfileActivity extends AppCompatActivity {
 
     private void checkImagePermissions(){
         int permissionCheck = UserProfileActivity.this.checkSelfPermission("Manifest.permission.CAMERA");
+        permissionCheck += UserProfileActivity.this.checkSelfPermission("Manifest.permission.READ_EXTERNAL_STORAGE");
+        permissionCheck += UserProfileActivity.this.checkSelfPermission("Manifest.permission.WRITE_EXTERNAL_STORAGE");
         if(permissionCheck != 0){
-            this.requestPermissions(new String[]{Manifest.permission.CAMERA},REQUEST_IMAGE);
+            this.requestPermissions(new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE},REQUEST_IMAGE);
         }else{
             takePhoto();
         }
@@ -233,8 +234,8 @@ public class UserProfileActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(requestCode == REQUEST_IMAGE){
-            if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+         if(requestCode == REQUEST_IMAGE){
+            if((grantResults[0] == PackageManager.PERMISSION_GRANTED) && (grantResults[1] == PackageManager.PERMISSION_GRANTED) && (grantResults[2] == PackageManager.PERMISSION_GRANTED)){
                 takePhoto();
             }
         }
