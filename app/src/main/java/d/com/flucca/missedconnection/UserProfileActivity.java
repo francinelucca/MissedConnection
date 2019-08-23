@@ -251,6 +251,8 @@ public class UserProfileActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+
+
         if(resultCode == RESULT_OK){
             if(requestCode == TAKE_PHOTO){
                 Bitmap photo = (Bitmap) data.getExtras().get("data");
